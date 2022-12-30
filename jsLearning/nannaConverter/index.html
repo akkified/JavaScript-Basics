@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Distance Converter</title>
+
+	<!--/ /-------- Normalize CSS --------/ /-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+	
+	<!--/ /-------- Google Fonts --------/ /-->
+	<link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans&display=swap" rel="stylesheet">
+	
+	<!--/ /-------- My Styles --------/ /-->
+	<link href="styles.css" rel="stylesheet">
+
+	<script src="script.js" defer></script>
+
+</head>
+
+<body>
+
+	<h1>Miles & Kilometers Converter</h1>
+    
+    <div class="container top">
+    	<p>Type in a number of miles and click the button to convert the distance to kilometers.</p>
+        
+        <form method="post" action="somephpfile.php" id="m-k">
+        
+        	<input type="text" name="distance" id="distance" placeholder="distance">
+            <input type="submit" name="convertdist" value="Convert Distance">
+        
+        </form>
+    </div>
+
+	<br>
+
+	<div class="container top">
+    	<p>Type in a number of kilometers and click the button to convert the distance to miles.</p>
+        
+        <form method="post" action="somephpfile.php" id="k-m">
+        
+        	<input type="text" name="distance" id="distance1" placeholder="distance">
+            <input type="submit" name="convertdist" value="Convert Distance">
+        
+        </form>
+    </div>
+    
+
+
+</body>
+</html>
