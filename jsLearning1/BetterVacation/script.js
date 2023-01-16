@@ -1,7 +1,7 @@
 "use strict";
 var detailsForm = document.querySelector("#destination_details_form")
 
-detailsForm.addEventListener("submit", handleFormSubmit())
+detailsForm.addEventListener("submit", handleFormSubmit)
 
 function handleFormSubmit(event) {
     event.preventDefault();
@@ -11,32 +11,36 @@ function handleFormSubmit(event) {
     var destDesc = event.target.elements["description"].value
 
     for(var i = 0; i < detailsForm.length; i++) {
-        detailsForm.element[1].value = "";
+        detailsForm.elements[i].value = "";
     }
+
+    var destCard = createDestinationCard(destName, destLocation, destPhoto, destDesc)
 
     var wishListContainer = document.querySelector("#destinations_container")
 
     if (wishListContainer.children.length === 0){
         document.querySelector("#title").innerHTML = "My Wish list"
     }
+
+    document.querySelector("#destinations_container").appendChild(destCard)
 }
 
 function createDestinationCard(name, location, photoURL, description) {
     var card = document.createElement("div")
     card.className = "card"
 
-    var img = document.createElement("img")
-    img.setAttribute('alt', name)
+    var image = document.createElement("img")
+    image.setAttribute('alt', name)
 
     var constantPhotoUrl = "images/signpost.jpeg."
 
-    if(photoURL.length === 0){
-        img.setAttribute('src', constantPhotoUrl)
+    if(photoURL.length == 0){
+        image.setAttribute('src', constantPhotoUrl)
     }
     else {
-        img.setAttribute("src", photoURL)
+        image.setAttribute("src", photoURL)
     }
-    card.appendChild(img)
+    card.appendChild(image)
 
 
     var cardBody = document.createElement("div")
@@ -66,4 +70,9 @@ function createDestinationCard(name, location, photoURL, description) {
     card.appendChild(cardBody)
 
     return card
+}
+
+function removeDestination(event) {
+    var card = event.target.parentElement;
+    card.remove();
 }
